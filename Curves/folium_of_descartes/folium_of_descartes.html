@@ -1,0 +1,96 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>Folium Of Descartes</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="folium_of_descartes.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="folium_of_descartes.js"></script>
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Folium Of Descartes <font color="orange"> f(x,y) = 0</font></br>
+                and other level lines of f(x,y) = x^3 + y^3 - 3x*y</h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+                	
+                 		<h3>Modify the curve </h3>
+                 		Select level Nr. 0 ... 13: <br/>
+                 		<input type="number" id="param1" min="0" max="13" step="1">
+                 		<!-- 
+<br/><br/>
+						y-frequency, 1 ... 20: <br/>
+                 		<input type="number" id="param2" min="1" max="20">
+ -->
+                 <br/><br/>
+              
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+					
+                </div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+                The level curves of the function 								<br/>
+                &nbsp &nbsp f(x,y) = x^3 + y^3 -3*x*y							<br/>
+        		can be computed from the ODE: 									<br/>
+        		&nbsp &nbsp c'(t) = Rot90(grad f)(c(t))							<br/>
+        		where grad f vanishes at the origin [x,y] = [0,0], 				<br/>
+        		where the <font color="orange">Folium Of Descartes</font>	 
+        		has a double point singularity and grad f vanishes at			<br/>
+        		[x,y] = [1,1],	where f has a local minimum.
+                <br/>
+                </div>
+                
+                <div id="copyright" class="text">
+                </br>
+                &nbsp The level curves of the folium polynomial are individually computed as
+                solutions of an ODE. </br>
+                &nbsp Therefore they can be treated as parametrized curves.
+                <figure>
+				<img src="i/folium_descartes_levelsN.png" alt="folium descartes levels" width="720" height="720" />
+				<figcaption>
+				These level curves of the Folium of Descartes are computed as solution set of the equation
+				f(x,y) = const for various constants. These curves are not parametrized.
+				</figcaption>
+				</figure>
+				
+				<p><a href="../../docs/Folium.pdf">Folium.pdf</a></p>
+				
+                <nav class="nav1"><a href="../index.html">
+                     <h2f style="text-align: center;"> Return To Plane Curves </h2></a></nav>
+				<p> 
+				</p>
+				
+                <footer>
+				© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

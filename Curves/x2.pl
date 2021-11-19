@@ -1,0 +1,1 @@
+$some_dir ='/Users/xah/Documents/3dxm/web/Curves/parabola'; opendir(DIR, $some_dir) || die "can't opendir $some_dir: $!"; @ls = readdir(DIR); closedir DIR;@my_files = grep { $_ =~ m/\.pdf$|\.mov$/ } @ls;use Data::Dumper;print Dumper(\@my_files);

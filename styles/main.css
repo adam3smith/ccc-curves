@@ -1,0 +1,172 @@
+@charset "utf-8";
+
+nav.nav1 {
+position:fixed;
+top:0px;
+left:0px;
+z-index: 5341;
+}
+
+nav.nav1 > a {display:inline-block;
+font-size: 1.5rem;
+border:solid thick white;
+border-radius:1rem;
+background-color:black;
+padding:0.2rem;
+}
+
+nav.nav1 > a:before {content:"↑ "}
+
+body {
+margin-top:3rem;
+font-family:Arial,sans-serif;
+background-color:black;
+color:white;
+}
+
+figure {margin:1ex;}
+
+figure.mvxl > img {
+border: solid 3px red;
+border-radius: 2rem;
+}
+
+p {
+line-height:1.5;
+max-width: 70ex;
+}
+
+figcaption {
+line-height:1.5;
+max-width: 70ex;
+}
+
+img {max-width:100%;height:auto;margin:1px;}
+
+li {margin-bottom:.6rem;}
+
+blockquote {
+padding-left:1rem;
+border-left:solid 2px hsl(247,99%,84%);
+color: hsl(247,99%,84%);
+}
+
+button {
+font-size: 1.5rem;
+}
+
+section {
+display: table;
+border:solid thin yellow;
+border-radius: 1rem;
+padding: 0.5rem;
+}
+
+a[href$=".pdf"]:before {content:"PDF ";
+font-size:1.5rem;
+}
+
+a[href$=".mov"]:before {content:"📺 ";
+font-size:2rem;
+}
+
+a:visited {
+text-decoration:none;
+color:hsl(41,50%,50%);
+}
+
+a:link {
+text-decoration:none;
+color:hsl(41,50%,50%);
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+cite {color:hsl(0,59%,52%)}
+
+div.topic-xl {
+display:table;
+margin:.5em;
+padding:.2em;
+border-radius:1em;
+border:solid thin blue;
+}
+
+div.thumbnail_grid_39839 > div {
+display:inline-block;
+margin:0.5rem;
+max-width:320px;
+text-align: center;
+}
+
+/* logo wrapper for each category's index page's logo at top */
+div.top-logo {text-align:center; margin-left:auto; margin-right:auto;}
+
+/* headings, used in each category's index pages. */
+h1.heading {font-size:34px; text-align:center; margin-left:auto; margin-right:auto;}
+h2.heading {font-size:20px; text-align:center; margin-left:auto; margin-right:auto;}
+h3.heading {font-size:18px; text-align:center; margin-left:auto; margin-right:auto;}
+
+/* The row and item are used for the category's index pages, for thumbnail listing with automatic wrap  */
+div.row {display:table; width:800px; text-align:center; margin-left:auto; margin-right:auto}
+div.item {display:table-cell; text-align:center; margin-left:auto; margin-right:auto; padding:1ex}
+div.item a img {border:none;}
+
+/* div.jv is used by java applet pages */
+div.jv {display:table; border:thin solid; padding:2px}
+
+div.thanks_71872 {
+margin: 0.5rem;
+}
+
+code {
+font-size: 1.2rem;
+white-space:pre-wrap;
+color:cyan;
+}
+
+pre {
+font-size: 1.2rem;
+white-space:pre-wrap;
+line-height:1.5;
+}
+
+pre.math {
+color:cyan;
+}
+
+section.desc {
+margin: 0.5rem;
+}
+
+span.tdxm_title { color:#2421B9; font-size:24pt; font-family:Apple Chancery}
+
+.style8 {
+	font-family: Verdana, sans-serif;
+	font-size: 18px;
+	color: #FFD700;
+}
+.style9 {
+	font-family: Verdana, sans-serif;
+	font-size: 20px;
+	color: #FFD700;
+}
+
+table { margin-left:auto; margin-right:auto; width:867px; text-align:center }
+td { text-align:center; margin:1ex }
+table td a img {border:none;}
+
+a.amz_search
+{
+font-size:1.2em;
+padding:.1em;
+color:#ffc125;
+border: solid thin #ffc125;
+border-radius:1ex 2ex 2ex 1ex;
+}
+
+footer {
+margin: 1rem;
+}

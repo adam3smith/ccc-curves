@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Polyhedron</title>
+
+		<style>
+      @media (orientation: landscape)
+			{
+					#svgArea {
+						width: 69%;
+						display: inline-block;
+					}
+					#mySVG{
+						margin-left: 60px;
+					}
+					#menuArea{
+						margin-top: 40px;
+						width: 30%;
+
+						display: inline-block;
+					}
+		  }
+		  @media (orientation: portrait)
+          {
+            #menuArea{
+                 margin-top: 40px;
+            }
+           }
+        </style>
+
+		<script defer src="../myLibrary/LinAlgebra.js"></script>
+		<script defer src="../myLibrary/myAnalysis.js"></script>
+		<script defer src="truncated4.js"></script>
+
+		</head>
+	<body style="background-color: black; color: cyan;">
+		<div>
+			<h1 style="text-align: center;">Platonic Polyhedra and their Archimedean Truncations</h1>
+			<a href="../3dxmTovmmTransition.html"><button style="background-color:lightgrey"><h2>Entry Page</h2></button></a>
+		</div>
+		<div id="svgArea">
+			<svg id="mySVG" width="600" height="500">
+
+			</svg>
+			<h3><div id="currentObject">Cube</div></h3>
+		</div>
+
+		<div id="menuArea">
+			<table>
+				<tr>
+					<td><label for="polyhedronMenu">Polyhedron:&nbsp;</label></td>
+					<td><select id="polyhedronMenu" size="1">
+							<option value="icosahedron">icosahedron</option>
+							<option value="dodecahedron">dodecahedron</option>
+							<option value="octahedron">octahedron</option>
+							<option value="cube" selected="">cube</option>
+							<option value="tetrahedron">tetrahedron</option>
+						</select>
+					</td>
+				</tr>
+				<tr><td>&nbsp;</td><td><br></td></tr>
+				<tr>
+					<td>Truncation Mode:</td>
+				    <td>
+						<select id="truncateMenu" size="1">
+							<option value="regular" selected="">no truncation</option>
+							<option value="vtrunc">vertex truncation</option>
+							<option value="etrunc">edge truncation</option>
+							<option value="strunc">snub truncation</option>
+							<option value="ktrunc">shrink truncation</option>
+						</select>
+					 </td>
+				</tr>
+				<tr><td>&nbsp;</td><td><br></td></tr>
+				<tr>
+					<td>Truncation Param:</td>
+					<td><input type="number" id="truncParam" min="0" max="48"></td>
+				</tr>
+				<tr><td>&nbsp;</td><td><br></td></tr>
+				<tr>
+					<td><label for="checkboxRotate">Rotate automatically:</label></td>
+					<td><input id="checkboxRotate" type="checkbox" name="rotate" ></td>
+				</tr>				
+				<tr>
+					<td>&nbsp;</td><td>Mouse rotation works</td>
+				</tr>
+				<tr>
+					<td><label for="checkboxStereo">Stereo y/n:</label></td>
+					<td><input id="checkboxStereo" type="checkbox" name="stereo" ></td>
+				</tr>				
+				<tr>
+					<td>&nbsp;</td><td>In wire frame only</td>
+				</tr>
+				<tr>
+					<td><label for="checkboxDual">Dual Poly add/rm:</label></td>
+					<td><input id="checkboxDual" type="checkbox" name="dual" ></td>
+				</tr>				
+				<tr>
+					<td>&nbsp;</td><td>In wire frame with original poly</td>
+				</tr><tr>
+					<td>Render Style:</td>
+					<td>
+						<input type="radio" id="patchstyle" name="rb1" value="patchstyle" checked>
+						<label for="patchstyle"> PatchStyle</label>
+						<br>
+						<input type="radio" id="wireframe" name="rb1" value="wireframe">
+						<label for="wireframe"> WireFrame</label>
+					</td>
+				</tr>
+				<tr><td>&nbsp;</td><td><br></td></tr>
+				<tr>
+					<td>Backgroud Color</td>
+					<td>
+						<input type="radio" id="black" name="rb2" value="black" checked>
+						<label for="black"> Black</label>
+						<br>
+						<input type="radio" id="white" name="rb2" value="white">
+						<label for="white"> White</label>
+					</td>
+				</tr>
+				<tr><td>&nbsp;</td><td><br></td></tr>
+				<tr>
+					<td>Projection:</td>
+					<td>
+						<input type="radio" id="ortho" name="rb3" value="ortho" checked>
+						<label for="ortho"> Orthogonal</label>
+						<br>
+						<input type="radio" id="persp" name="rb3" value="persp">
+						<label for="persp"> Perspective</label>
+					</td>
+				</tr>
+				<tr><td>&nbsp;</td><td><br></td></tr>
+				<tr>
+					<td>View Distance:</td>
+					<td><input type="number" id="viewdist" min="20" max="400"></td>
+				</tr>
+			</table>
+		</div>
+		
+					
+			<div id="verticesPosition"></div>
+
+			<p>&nbsp &nbsp &nbsp Position of vertices of Archimedean solids on their Platonic parents:
+			<br> Midpoint Truncation: <font color="gray">
+			Choose the midpoints of the Platonic edges as the vertices
+			of a new polyhedron. From the tetrahedron we get the octahedron.
+			From cube or octahedron we get the cuboctahedron which has 6 square faces
+			and 8 triangular faces. From icosahedron or dodecahedron we get 
+			the icosidodecahedron which has 12 pentagon faces and 20 triangular faces. </font>
+			<br> Standard Truncation:  <font color="gray">
+			Cut the k-edged vertices so that the Platonic n-gon faces
+			become regular 2n-gons and new k-gon faces appear below the 
+			Platonic vertices. Names: truncated tetrahedron, truncated octahedron, truncated cube,
+			truncated icosahedron, truncated dodecahedron.</font>
+			<br> Edge Truncation:   <font color="gray">
+			Scale each Platonic n-face from its midpoint down and take the vertices of these smaller
+			n-gons as the vertices of a new polyhedron. 
+			Below the k-edged vertices appear regular k-gon faces and below the edges appear rectangular 
+			faces. With the correct scaling these rectangles are squares. From the tetrahedron we get the
+			cuboctahedron. From cube or octahedron we get the rhombicuboctahedron which has (6+12) square
+			faces and 8 triangular faces. From dodecahedron or icosahedron we get the rhombicosidodecahedron
+			which has 12 pentagon faces, 20 triangular faces and 30 square faces.</font>
+			<br> Snub Truncation:   <font color="gray">
+			Scale the Platonic n-faces down as before but also rotate them around their midpoints and take
+			the vertices of these smaller n-gons as the vertices of a new polyhedron. Again we get k-gon faces
+			below the k-edged vertices and below each edge appear two triangular faces. One can adjust the
+			rotation parameter so that all these triangles are isoceles; with the correct scaling they are
+			also equilateral. From the tetrahedron one gets the icosahedron. From cube or octahedron one
+			gets the snub cube which has 6 square faces and (8+24) triangular faces. From dodecahedron or
+			icosahedron one gets the snub dodecahedron which has 12 pentagon faces and (20+60) 
+			triangular faces. These two snub polyhedra are different from their mirror images.</font>
+			<br> Shrink Truncation:   <font color="gray">
+			The two remaining Archimedean solids are often described as a modified vertex truncation of the
+			cuboctahedron and the icosidodecahedron. It is maybe simpler to start from the standard
+			truncation above, shrink the regular 2n-gon faces from their midpoints and take the vertices
+			of all these smaller 2n-gons as the vertices of a new polyhedron. As with edge truncation
+			we get rectangles under the edges; these are made squares with the correct scaling. Under
+			the k-edged old vertices we get new 2k-gon faces. The tetrahedron thus gives the truncated
+			octahedron (4 squares and 8 hexagons). Cube or octahedron give the truncated cuboctahedron
+			(6 eight-gons, 8 hexagons and 12 squares). Dodecahedron or icosahedron give the truncated
+			icosidodecahedron (12 ten-gons, 20 hexagons and 30 squares).
+			</font>
+			</p>
+		<!--comment-->	
+		<footer>
+			<a href="../docs/Platonics.pdf"><button style="background-color:lightgrey">Platonic and Archimedean Polyhedra.pdf</button></a><br>
+			© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">
+                    <button style="background-color:lightgrey">3DXM Consortium</button></a>.
+			Please send comments or suggestions to <a href="mailto:palais%40uci.edu">
+			        <button style="background-color:lightgrey">palais&#64;uci.edu</button></a>
+			or to Hermann Karcher at <a href="mailto:unm416%40uni-bonn.de">
+					<button style="background-color:lightgrey">unm416&#64;uni-bonn.de</button></a>
+		</footer>
+	</body>
+</html>

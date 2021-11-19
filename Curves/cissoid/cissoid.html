@@ -1,0 +1,119 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>Cissoid</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="cissoid.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="cissoid.js"></script>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104620-4', 'auto');
+  ga('send', 'pageview');
+</script>
+        
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Cissoid and Strophoid</br>
+                drawn by different pens on the same moving plane</h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+                	
+                 		<h3>Modify Image </h3>
+						select curve:  -7  ...  7: <br/>
+                 		<input type="number" id="param2" min="-7.0" max="7.0" step="0.5">
+                 <br/><br/>
+                 
+					<input id="checkboxConst" type="checkbox" name="construct" >
+					<label for="checkboxConst">Add Mechanical Construction</label>
+				 
+				 	<br/><br/>
+                 
+					<input id="checkboxCurves" type="checkbox" name="curves" >
+					<label for="checkboxCurves">Add More Curves</label>
+				 
+				 	<br/><br/>
+              
+					<input id="checkboxRand" type="checkbox" name="randots" >
+					<label for="checkboxRand">Add Random Dots</label>
+				 
+				 	<br/><br/>
+                 
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+				
+				<br/><br/>	
+                </div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+                The Cissoid of Diocles is over 2000 years old. It was geometrically defined,
+                formulas came much later. We use Newton's mechanical generation, which also draws
+                the modern Strophoid. It gives the following parametrization: 			<br/>
+        		&nbsp c(t) = bb * [sin(t)*(1/(1+cos(t))-k), 1-k*cos(t) ]			<br/>
+        		The parameter k specifies different pen positions on Newton's drawing
+        		mechanism, a so called carpenter's square. One leg of this tool passes
+        		through the origin, the other endpoint moves on the straight yellow line
+        		(called directrix). k is the signed distance of the pen (magenta dot) from
+        		this endpoint (yellow dot). </br>
+        		The caustic of the normals of the Cissoid (select = 2) is a parabola. A
+        		parabola is also obtained by inverting the Cissoid in a circle around the cusp.
+                <br/>
+                </div>
+                
+                <div id="copyright" class="text">
+                &nbsp All such mechanical constructions of curves also come with a
+                tangent construction. Imagine that a so called  </br>
+                &nbsp moving plane is attached to the drawing mechanism. A square of
+                random dots can be added to emphasize the	</br>
+                &nbsp rotating motion of the plane. The big green dot is, at each moment,
+                the fixed point of this momentary rotation.    </br>
+                &nbsp For any pen position the segment from the currently drawn point
+                to the current center of rotation is orthogonal  </br>
+                &nbsp to the current tangent. One may think of this segment as a generalized
+                radius. </br>
+                &nbsp The random dots are shown in two consecutive positions to bring out the
+                rotation pattern.
+                </br>
+                <p><a href="../../docs/Cissoid__Strophoid.pdf">Cissoid.pdf</a></p>
+                
+                <nav class="nav1"><a href="../index.html">
+                     <h2f style="text-align: center;"> Return To Plane Curves </h2></a></nav>
+
+                <footer>
+				© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>Hyperbola</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="hyperbola.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="hyperbola.js"></script>
+				
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104620-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Hyperbolas <br/>
+                with their Inversions
+                </h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+              <!--   <table style="background-color: black; color: cyan;"> -->
+                	
+                 		<h3>Modify the curve </h3>
+                 		ratio b/a of axes, 0.2 ... 2: <br/>
+                 		<input type="number" id="param1" min="0.2" max="2" step="0.2">
+ <!-- 
+                		<br/><br/>
+						y-frequency: <br/>
+                 		<input type="number" id="param2" min="1" max="20">
+ -->
+                 <br/><br/>
+              
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxConstr" type="checkbox" name="construct" >
+					<label for="checkboxConstr">Show Construction y/n</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxInvert" type="checkbox" name="invert" >
+					<label for="checkboxInvert">Invert Curve in Circle</label>
+				
+				<!-- </table> -->	
+                </div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+                The hyperbolas are computed with this 					<br/>
+                parametrization: 										<br/>
+        		c(t) = [a * cosh(t), b * sinh(t)]						<br/>
+        		Note: (x/a)^2 - (y/b)^2 = 1	("implicit equation")		<br/>
+        		The point & tangent construction is shown:				<br/>		
+        		Intersect the ray from the left focal point with the	<br/>
+        		circle. Connect this point S with the right focal		<br/>
+        		point F. The symmetry line between S and F is the		<br/>
+        		hyperbola tangent where the ray meets the hyperbola.	<br/><br/>
+        		Inversion(vector) = (radius/|vector|)^2 * vector		<br/>
+        		The inverted curves are lemniscates
+                <br/>
+                </div>
+                
+                <div id="copyright" class="text">
+                &nbsp Construction: Intersect ray from left focal point LF with circle
+                of radius 2a around LF. Connect intersection point P 	</br>
+                &nbsp with right focal point RF. The symmetry line between P and RF is 
+                tangent to the hyperbola where it intersects the ray from LF.
+                </br>
+				
+                <p><a href="../../docs/Hyperbola.pdf">Hyperbola.pdf</a></p>
+
+				<nav class="nav1"><a href="../index.html">Plane Curves</a></nav>
+                <footer>
+				© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

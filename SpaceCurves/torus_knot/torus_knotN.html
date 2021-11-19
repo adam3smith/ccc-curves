@@ -1,0 +1,91 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>torus_knot</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="../../styles/ben.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="torus_knotFormulas.js"></script>
+				<script defer src="../../myLibrary/DrawSpaceCurves.js"></script>
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Torus Knots</h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+                	
+                 		<h3>Modify the curve </h3>
+                 		soul-radius, 50 ... 100: <br>
+                 		<input type="number" id="param1" min="50" max="100" step="2">
+                 		<br/><br/>
+                 		meridian-radius, 10 ... 60: <br/>
+                 		<input type="number" id="param2" min="10" max="60" step="2">
+                 		<br/><br/>
+						soul-frequency, 1 ... 10: <br/>
+                 		<input type="number" id="param3" min="1" max="10">
+                 		<br/><br/>
+						meridian-frequency, 1 ... 23: <br/>
+                 		<input type="number" id="param4" min="1" max="23">
+                 		<br><br>
+                 <br/><br/>
+              
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals</label>
+				 		
+ 					<br/><br/>
+					<input id="checkboxTube" type="checkbox" name="tube" >
+					<label for="checkboxTube">Render as Tube</label>
+				 		
+ 					<br/><br/>				
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+						
+ 					<br/><br/>
+					<input id="checkboxRot" type="checkbox" name="rotate" checked>
+					<label for="checkboxRot">Rotate automatically. <br>
+					Mouse rotation works</label>
+					<br><br>
+                </div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+                The Torus Knots are defined by these equations: 			<br>
+                latRad = soulRad + meridRad*cos(meridFreq*t)             	<br>
+        		c(t) = [ latRad*cos(soulFreq*t), 							<br>
+        		&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp latRad*sin(soulFreq*t),		<br>
+        		&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp meridRad*sin(meridFreq*t) ]	
+ 				<p><a href="../../docs/Torus_Knot.pdf">Torus_Knot.pdf</a></p>
+                
+                </div>
+                
+                <div id="copyright" class="text">
+ 				<nav class="nav1"><a href="../index.html">Space Curves</a></nav>
+ 				
+                <footer>
+				© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

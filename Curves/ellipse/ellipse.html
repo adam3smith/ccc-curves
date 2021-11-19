@@ -1,0 +1,118 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>Ellipse</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="ellipse.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="ellipse.js"></script>
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Three Ellipse Constructions</h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+              <!--   <table style="background-color: black; color: cyan;"> -->
+                	
+                 		<h3>Modify the curve </h3>
+                 		ratio of axes, 1 ... 4: <br/>
+                 		<input type="number" id="param1" min="1" max="4" step="0.2">
+                 	<!-- 
+	<br/><br/>
+						y-frequency, 1 ... 20: <br/>
+                 		<input type="number" id="param2" min="1" max="20">
+ -->
+                 <br/><br/>
+              
+					<input id="checkboxConst" type="checkbox" name="construct" >
+					<label for="checkboxConst">Circular Directrix Construction</label>
+				 
+				 	<br/><br/>
+              
+					<input id="checkboxAffin" type="checkbox" name="affine" >
+					<label for="checkboxAffin">Affine Construction</label>
+				 
+				 	<br/><br/>
+              
+					<input id="checkboxRoll" type="checkbox" name="rolling" >
+					<label for="checkboxRoll">Rolling Construction</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxWhisper" type="checkbox" name="whisper" >
+					<label for="checkboxWhisper">Whispering Room</label>
+				 
+ 					<br/><br/>
+              
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+				
+				<!-- </table> -->	
+                </div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+                The most common parametrization of ellipses is: 			<br/>
+        		&nbsp &nbsp c(t) = [ a * cos(t), b * sin(t) ]				<br/>
+        		Here a is constant and with the ratio parameter
+        		above b = a/ratio.											<br/>
+        		1. The <font color="red">circular directrix</font> is
+        		the circle of radius 2a 									
+        		around one (here: the left) focal point. Draw, for any
+        		point P on the directrix, its radius and the segment to
+        		the other focal point F. The symmetry line between P
+        		and F is the the tangent to the ellipse at its
+        		intersection with the radius of P.
+                <br/>
+        		2. Clearly, this ellipse is an image of the circle of
+        		radius a under the <font color="red">affine map</font>
+        		(x,y) -> (x, b/a*y).										<br/>
+        		The demo constructs this map to get the ellipse, point
+        		and tangent. </br>
+                </div>
+                
+                <div id="copyright" class="text">
+                &nbsp 3. The <font color="red">rolling construction</font> obtains the ellipse
+                by rolling a circle of radius R inside a circle of radius 2R. The rolling circle
+                 </br>
+                &nbsp draws the ellipse with a stick of length L > R: 
+                c(t) = R*[cos(t),sin(t)] + L*[cos(t), sin(-t)], hence a = R+L, b = L-R.
+                 </br>
+                &nbsp These three constructions give ellipses with their tangents. For a joint 
+                construction of all conics see <a href="../conics/conics.html">Conic Sections</a>.
+                <p><a href="../../docs/Ellipse.pdf">Ellipse.pdf</a></p>
+                <nav class="nav1"><a href="../index.html">
+                     <h2f style="text-align: center;"> Return To Plane Curves </h2></a></nav>
+
+                <footer>
+				© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

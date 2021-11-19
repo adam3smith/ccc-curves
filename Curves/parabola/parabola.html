@@ -1,0 +1,112 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>Parabola</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="parabola.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="parabola.js"></script>
+       
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104620-4', 'auto');
+  ga('send', 'pageview');
+</script>       
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Parabola And Its Normals</h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+              <!--   <table style="background-color: black; color: cyan;"> -->
+                	
+                 		<h3>Modify the curve </h3>
+                 		param, 2 ... 20: <br/>
+                 		<input type="number" id="param1" min="2" max="20" step="1">
+                 		<!-- 
+<br/><br/>
+						y-frequency, 1 ... 20: <br/>
+                 		<input type="number" id="param2" min="1" max="20">
+ -->
+                 <br/><br/>
+              
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+              
+					<input id="checkboxConst" type="checkbox" name="construct" >
+					<label for="checkboxConst">Add Construction</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Normals Up To Caustic</label>
+				 
+ 					<br/><br/>
+            	 	
+					<input id="checkboxIntersec" type="checkbox" name="intersecn" >
+					<label for="checkboxIntersec">Intersection Pattern Of Normals</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+				
+				<!-- </table> -->	
+                </div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+                The parabola is defined by these equations: 				<br/>
+        		c(t) = [ 1/param* t^2 , t ]		<br/>
+        		The caustic of its normals is the cubic y^2 = x^3. 			<br/>
+                <br/><br/>
+                If t1+t2+t3 = 0, then the normals at c(t1), c(t2), c(t3)    </br>
+                all <font color="green">three</font> intersect in 
+                one point. Since the parabola  		</br>
+                normals are tangents to the caustic, this property of		</br>
+                the caustic tangents is called a "geometric addition".
+                <br/>
+                </div>
+                
+                <div id="copyright" class="text">
+                
+                &nbsp The construction: Connect the focal point F to an arbitrary point P
+                on the directrix (yellow line). The symmetry line between 	</br>
+                &nbsp F and P is the tangent of the parabola at a point Q such 
+                that PQ is parallel to the axis.							</br>
+                &nbsp Osculating circles at c(t) are computed using c(t), c'(t), c"(t). 
+                They can also be visually identified: The circle is of course </br>
+                &nbsp tangential to the curve, but it also passes from one side of
+                the curve to the other (except at the vertex). Watch the demo!
+                </br>
+                <p><a href="../../docs/Parabola.pdf">Parabola.pdf</a></p>
+                <nav class="nav1"><a href="../index.html">
+                     <h2f style="text-align: center;"> Return To Plane Curves </h2></a></nav>
+
+                <footer>
+				© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

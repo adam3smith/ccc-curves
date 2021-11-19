@@ -1,0 +1,138 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>Vaughan Jones Braids</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="braids.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="braids.js"></script>
+        </head>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104620-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+        <body>
+
+         <div class="site">
+                <div id="title" class="text"><br>
+                <h2 style="text-align: center;">Modern Braid List and Vaughan Jones' old Braid List</h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+                	    <br>
+						<input type="radio" id="knotinfo" name="rb1" value="knotinfo" checked>
+						<label for="knotinfo"> Use 2004 braid list of 
+						<a href="https://arxiv.org/abs/math/0401051">Thomas A. Gittings</a>
+						</label>
+						<br>
+						<input type="radio" id="vJones" name="rb1" value="vJones">
+						<label for="vJones"> Use old braid list of Vaughan Jones</label>
+
+                 		<h3>Choose the Braid Word<br> by number from 1 ... 249: <br> 
+                 		<input type="number" id="param1" min="1" max="249" step="1"> <br>             		 
+                 		<button id="buttonUp1" type="button">Up 1</button> 
+                 		<button id="buttonDwn1" type="button">Down 1</button> 
+                 	<!--
+                 		<input id="checkboxUp1" type="checkbox" name="up1" >
+                 		<label for="checkboxUp1">Up</label>	
+                 		<input id="checkboxDwn1" type="checkbox" name="down1" >
+                 		<label for="checkboxDwn1">Down</label>
+                 	-->	
+               			</h3>
+               			
+                    Change knot number by 10 <br>
+                    <button id="buttonUp10" type="button">Up 10</button>
+                    <button id="buttonDwn10" type="button">Down 10</button>
+                   <!-- 
+					<input id="checkboxUp10" type="checkbox" name="up10" >
+					<label for="checkboxUp10">up</label>
+					<input id="checkboxDwn10" type="checkbox" name="down10" >
+					<label for="checkboxDwn10">down</label>
+            	 	-->
+				 
+ 					<br/><br/>
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>	
+					
+					<h4>
+						<font color="magenta">braid words chosen by number appear here  </font>  <br>
+						- or : Input your own braid word, 
+						use<br> cross-names 1 ... 9, at most 20 crosses:<br/>
+                 		<font size="4"><b><input type="text" id="param2">	</b></font>
+                 	</h4>
+                 		<div id="currentObject"><h4> Cube </h4> </div>	
+
+                 		<br> 
+                 		Use different Bezier tangents: <br>
+                 		<input type="number" id="param3" min="0.1" max="2" step="0.1">	<br>
+                 		<button id="buttonUp" type="button">Up 0.1</button> max 2.5
+                 		<button id="buttonDwn" type="button">Down 0.1</button> min 0.1
+                 		<br>
+                 <!--		
+                 		<input id="checkboxUp" type="checkbox" name="up" >
+                 		<label for="checkboxUp">Up</label>	
+                 		<input id="checkboxDwn" type="checkbox" name="down" >
+                 		<label for="checkboxDwn">Down</label>
+                  -->	
+                 			
+                </div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+                </div>
+                
+                <div id="copyright" class="text">
+                <a href="../../docs/BraidList.pdf">Braid List of Knots.pdf</a> &nbsp &nbsp
+                <a href="../../docs/VaughanJonesBraids.pdf">Vaughan Jones' Braids.pdf</a> &nbsp  &nbsp
+                <a href="https://en.wikipedia.org/wiki/List_of_prime_knots">Knot list in Wikipedia</a> &nbsp  &nbsp
+                <a href="https://knotinfo.math.indiana.edu/">knotinfo.math.indiana.edu</a>
+                <br><br>
+                <nav class="nav1"><a href="../index.html">
+                     <h2f style="text-align: center;"> Return To Space Curves </h2></a></nav>
+				
+                I met Vaughan Jones at the IHES (Bures sur Yvette) when he was working on the Jones polynomials.
+                He had made a list of braids which represented all prime knots up to ten crossings, for testing.
+                He gave me his list for use in my graphics program. Here the same old list is used.
+                Jones commented that this early list may contain errors and also that he did not always find 
+                the shortest braid word. It seems he did not make his list public, but I view it as a piece of
+                mathematical history.
+				<br> 
+				Since Jones' old list does indeed contain errors I let the program on this page also use the list from
+				<a href="https://arxiv.org/abs/math/0401051">Thomas A. Gittings</a>. 
+				I checked for a number of cases that these braid words agree with those given
+				in <a href="https://knotinfo.math.indiana.edu/">knotinfo</a>.
+				<br>
+				Errors in Jones' list which can be detected without theory are:
+				Nr 166 (10_82) and Nr 201 (10_117) -- they can be represented with less than
+				10 crossings. And Nr 34 (8_20) and Nr 35 (8_21) differ only by a 180 degree rotation, Nr 35 is
+				wrong, see knotinfo. I keep using Jones' list in spite of the errors, because I am so impressed
+				that he made his list just as a testing ground for a theory to be developed.
+				
+                <footer>
+				© Copyright 2004-2021 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

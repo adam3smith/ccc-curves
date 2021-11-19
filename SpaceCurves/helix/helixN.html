@@ -1,0 +1,96 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>helix</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="../../styles/ben.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="helixFormulas.js"></script>
+				<script defer src="../../myLibrary/DrawSpaceCurves.js"></script>
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Helix and Evolute</h2>
+                <h4 style="text-align: center;">
+                	For space curves of constant curvature the evolute has the same constant curvature </h4>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+                	
+                 		<h3>Modify the curve </h3>
+                 		tube thickness, 1 ... 16: <br/>
+                 		<input type="number" id="param1" min="1" max="16">
+                 		<br/><br/>
+                 		Radius, 0.1 ... 6: <br/>
+                 		<input type="number" id="param2" min="0.1" max="6" step="0.1">
+                 		<br/><br/>
+						slope, 0.02 ... 2: <br/>
+                 		<input type="number" id="param3" min="0.02" max="2" step="0.02">
+                 		<br/><br/>
+						log(Scaling factor), 0 ... 7: <br/>
+                 		<input type="number" id="param4" min="0" max="7" step="0.2">
+                 <br/><br/>
+              
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals</label>
+				 		
+ 					<br/><br/>
+					<input id="checkboxTube" type="checkbox" name="tube" >
+					<label for="checkboxTube">Render as Tube</label>
+				 		
+ 					<br/><br/>				
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+						
+ 					<br/><br/>
+					<input id="checkboxRot" type="checkbox" name="rotate" checked>
+					<label for="checkboxRot">Rotate automatically. <br>
+					Mouse rotation works</label>
+					<br><br>
+                </div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+                The helices have the formulas <br>
+                curve(t) = Rad*[cos(frq*t), sin(frq*t), slope*frq*t]. <br>
+                We choose frq = 1/(Rad*sqrt(1 + slope^2)) to keep the arclength of the
+                helix constant under parameter changes. The normals of the helix are drawn
+                until they meet the evolute, another helix with the same curvature.
+                <br/>
+                </div>
+                
+                <div id="copyright" class="text">
+                The helix and its evolute have the same constant curvature. The convex hull of their
+                pair of osculating circles is the <a href="https://de.wikipedia.org/wiki/Oloid"> Oloid.</a>
+                <br> If ``normals'' and ``osculating circles'' are selected, then the Oloid is shown.
+                <br><a href="helix.html"><font size="4">See more images of helices<font></a>
+ 				<nav class="nav1"><a href="../index.html">Space Curves</a></nav>
+ 				<p><a href="../../docs/Helix.pdf">Helix.pdf</a></p>
+ 				
+                <footer>
+				© Copyright 2004-2021 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

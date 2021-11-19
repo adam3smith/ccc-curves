@@ -1,0 +1,81 @@
+.site{
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        width: 100vw;
+/*      height: 100vh; */
+
+/*      https://developer.mozilla.org/de/docs/Web/CSS/Media_Queries/Using_media_queries */
+
+}
+
+/* default */
+.site{
+        display:grid;
+        grid-template-columns: 5fr 2fr;
+        grid-template-rows: auto auto 12em 2em;
+        grid-template-areas:
+                "t t"
+                "s m1"
+                "s m1"
+                "d c";
+        }
+@media(orientation:landscape){
+        .site{
+        display:grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+                "t t"
+                "s m1"
+                "s d"
+                "c c";
+        }
+}
+@media(orientation:portrait){   /*  and (max-width:700px) */
+        .site{
+        display:grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto auto auto;
+        grid-template-areas:
+                "t"
+                "s"
+                "s"
+                "m1"
+                "d"
+                "c";
+        }
+}
+.text{
+/* font styles */
+}
+
+#title{
+        background-color:black;
+        color:white;
+        grid-area:t;
+}
+#svgArea{
+        background-color:black;
+        color:white;
+        grid-area:s;
+}
+#mySVG{
+		background-color:black;
+        color:white;
+}
+#menu{
+        background-color:black;
+        color:white;
+        grid-area:m1;
+}
+#description{
+        background-color:black;
+        color:white;
+        grid-area:d;
+}
+#copyright{
+        background-color:black;
+        color:white;
+        grid-area:c;
+}

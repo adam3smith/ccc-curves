@@ -1,0 +1,185 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>autoevolute</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="../../styles/ben.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="autoevoluteFormulas.js"></script>
+				<script defer src="../../myLibrary/DrawSpaceCurves.js"></script>
+       
+
+<style>
+	.slidecontainer {
+	  width: 80%;
+	}
+
+
+	.slider {
+	  -webkit-appearance: none;
+	  width: 70%;
+	  height: 25px;
+	  outline: none;
+	  -webkit-transition: .2s;
+	}
+
+	.slider:hover {
+	  opacity: 1;
+	}
+
+	.slider::-webkit-slider-thumb {
+	  -webkit-appearance: none;
+	  appearance: none;
+ 	  width: 25px;
+	  height: 25px;
+	  background: #04AA6D;
+	  cursor: pointer;
+	}
+
+	.slider::-moz-range-thumb {
+	  width: 25px;
+	  height: 25px;
+	  background: #04996D;
+	  cursor: pointer;
+	}
+</style>
+       
+       
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Closed Constant Curvature Autoevolutes</h2>
+                <h4 style="text-align: center;">These curves are their own evolutes </h4>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+                	
+                 		<h3>Modify the curve </h3>
+                 		curvature kappa, 0.2 ... 5: <br>
+                 		<input type="number" id="param1" min="0.2" max="5" step="0.005">
+                 		<br/><br/>
+						velocity 1st Fourier &nbsp a1, -4 ... 6: <br/>
+                 		<input type="number" id="param2" min="-4" max="6" step="0.01">
+                 		<br/><br/>
+						velocity 3rd Fourier &nbsp a3, -4 ... 6: <br/>
+                 		<input type="number" id="param3" min="-4" max="6" step="0.01">
+                 		<br/><br/>
+						velocity frquency  &nbsp fr, 0.2 ... 5: <br/>
+                 		<input type="number" id="param4" min="0.2" max="5" step="0.002">
+                 		<br/><br/>
+						tube width, 0.2 ... 8: <br/>
+                 		<input type="number" id="param5" min="0.2" max="8" step="0.2">
+                 		<br/><br/>
+						log(Scaling factor), 0 ... 7: <br/>
+                 		<input type="number" id="param6" min="0" max="7" step="0.2">
+                 	<br/><br/>
+              
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals to Evolute</label>
+				 		
+ 					<br/><br/>
+					<input id="checkboxTube" type="checkbox" name="tube" >
+					<label for="checkboxTube">Render as Tube</label>
+			 		
+ 					<br/><br/>				
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+	
+ 					<br/><br/>
+					<input id="checkboxRot" type="checkbox" name="rotate" checked>
+					<label for="checkboxRot">Rotate automatically. <br>
+					Mouse rotation works</label>
+					<br><br>
+                </div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+              	These curves are defined by the following variation of the Serret-Frenet ODE: <br>
+              	T'(t) = kappa*vel(t)*N(t), <br>
+              	N'(t) = -kappa*vel(t)*T(t) + kappa/vel(t)*(T(t) x N(t)). <br>
+              	The velocity function vel(t) satisfies <br> 
+              	vel(t+pi) = 1/vel(t). It is constructed from a function h(t)<br>
+              	<select id="torsionMenu" size="1" style="font-size:18px;">
+							<option value="default" selected="">Fourier default:&nbsp h(t) = a1*sin(t)+a3*sin(3t)</option>
+							<option value="flatZeros">high order zeros :&nbsp h(t) = a1*sin(t)^9+a3*sin(3t)^9</option>
+							<option value="flatExtrema">very flat extrema:&nbsp h(t) = a1*pi/2sin(..(pi/2sin(t))..)</option>
+						</select>
+              	<br>
+              	as: vel(t) = sqrt(1 + h^2(t)) - h(t). Alternative: vel(t) = exp(h(t)).<br>
+              	For more freedom we scale t := fr*t. This parameter is fairly redundant,
+              	by changing all the others one can obtain similar curves.
+                </div>
+                
+                <div id="copyright" class="text">          
+                <font size="3"> When Ekkehard-H. Tjaden saw these
+                <a href="../constant_curvature/constant_curvatureN.html">closed constant curvature space curves,</a>
+                he suggested to look for examples which are congruent to their evolutes. Since this property is 
+                difficult to decide from the standard Frenet-Serret ODEs, he suggested the modification to the right.
+                This ODE has the property that the curve on [0, pi] is congruent to the evolute on [pi, 2pi] and
+                vice versa. The ODE-solutions have still the same rotation symmetries around the indicated principal 
+                normals, which we used for constant curvature space curves without extra evolute conditions. We find
+                closed examples by always making the symmetry normals coplanar, which implies that they all intersect
+                in one point; the other parameters suffice to make the angle between adjacent symmetry normals rational
+                (p/q*pi) so that the solution curves close. - There are two cases: if the curve and its evolute are two
+                congruent closed curves, we call them a Tjaden pair (turn on "Normals to Evolute")
+                and if the curve is its own evolute we call it a <font color="magenta">ccc-autoevolute</font>.
+                See:  <a href="../../docs/ccc-autoevolute.pdf">ccc-Autoevolute.</a>
+                 				
+ 				    <div class="slidecontainer">
+  					<input type="range" min="0" max="16" step = "1" value="16" class="slider" id="myRange">
+  					<font size="6"><span id="giveValue"></span></font>
+  					<br>Click through the examples!
+					</div>
+                All parameters can be changed independently and if the corresponding solution curve has its symmetry normals
+                so close that they can be made coplanar by slightly changing the first parameter 
+                <font color="magenta"> kappa </font>, then the program adjusts kappa. (The console has more details.) Note:
+                If the symmetry normals are parallel there is no signed distance between them and the distance function whose
+                zero we are looking for returns "Not a Number" = NaN. Therefore we cannot always find a zero between a positive
+                and a negative value.-- Here is a list of examples (copy a1, a3 first, kappa last): </font><br><br>
+                <table>
+				<tr>
+					<td> kappa: </td> <td>0.5993,</td><td>1.675,</td><td>1.022,</td><td>0.9413,</td><td>0.6526,</td><td>0.9707,</td> 
+					<td>1.3703,</td><td>0.5386,</td><td>1.65,</td><td>0.6493,</td><td>1.527,</td><td>1.0818,</td><td>1.5696,</td>
+					<td>2.6929,</td><td>2.8702,</td><td>2.602,</td><td>2.525,</td>
+				</tr><tr>	
+                	<td> a1:  </td> <td>1.5618,</td> <td>0.7238,</td><td>1.2444,</td><td>1.2439,</td><td>0.8551,</td><td>2.3695,</td>
+                	<td>1.2699,</td><td>2.1199,</td><td>0.716,</td><td>0.614,</td><td>0.8847,</td><td>1.9439,</td><td>0.9374,</td>
+                	<td>1.5045,</td><td>1.5045,</td><td>1.755,</td><td>1.7978,</td>
+                </tr><tr>	
+                	<td> a3: </td> <td> -0.5206,</td> <td>0.6716,</td><td>-2.1667,</td><td>-2.581,</td><td>-0.5073,</td><td>-0.8647,</td>
+                	<td>0.2991,</td><td>-0.3854,</td><td>-0.614,</td><td>-0.614,</td><td>-0.6478,</td><td>-0.6478,</td><td>0.1875,</td>
+                	<td>0.5015,</td><td>-0.5015,</td><td>-0.6178,</td><td>-0.0918,</td>
+                </tr>
+                </table>
+                <br>The convex hull of the pair of osculating circles is the <a href="https://de.wikipedia.org/wiki/Oloid"> Oloid.</a>
+ 				<br>Select ``normals'' and ``osculating circles'' to see it.
+ 				
+ 				<br><nav class="nav1"><a href="../index.html">Space Curves</a></nav>
+ 				
+                <footer>
+				© Copyright 2004-2021 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

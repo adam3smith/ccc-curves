@@ -1,0 +1,1 @@
+$t = "what_ever";open(TT, ">xyz");print TT $t;

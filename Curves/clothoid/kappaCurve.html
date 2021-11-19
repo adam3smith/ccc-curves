@@ -1,0 +1,95 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Clothoid</title>
+
+<link rel="stylesheet" href="../../styles/main.css" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104620-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>kappa Curve</title>
+                <link rel="stylesheet" href="kappaCurve.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="kappaCurve.js"></script>
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Generalized Clothoid </h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+              <!--   <table style="background-color: black; color: cyan;"> -->
+                	
+                 		<h3>Modify the curve </h3>
+                 		exponent, 0.05 ... 1.1: <br/>
+                 		<input type="number" id="kappaParam" min="0.05" max="1.1" step="0.01"><br/>
+
+                 <br/><br/>
+                 
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+				
+				<!-- </table> -->	
+                </div>
+                
+                <div id="description" class="text">			<br/>
+                The curvature function of this curve is 	<br/>
+                 kappa(s) = t^exponent 						<br/>
+                kappa(s) is the derivative of 				<br/>
+                 angle(s) = t^(exponent+1) / (exponent+1)	<br/>
+                velocity v(s) = [cos(angle(s),-sin(angle(s))] <br/>
+                The curve c(s) is determined by c'(s)=v(s)	<br/>
+                </div>
+                <div id="copyright" class="text">
+                
+                <br/>
+ 				
+
+				<nav class="nav1"><a href="../index.html">Plane Curves</a></nav>
+				<p><a href="../../docs/clothoid.pdf">clothoid.pdf</a></p>
+				
+				<footer>
+				© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de">unm416&#64;uni-bonn.de</a>
+				
+				</footer>
+                </div>
+                
+
+				
+         </div>
+         
+        </body>
+</html>

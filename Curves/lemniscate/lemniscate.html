@@ -1,0 +1,100 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>Leminscates</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="lemniscate.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="lemniscate.js"></script>
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Leminscates are Inversions (in Circles) of&nbsp 
+                <a href="../hyperbola/hyperbola.html">Hyperbolas</a> </br>
+                Lemniscates can also be drawn by a three rod drawing mechanism</h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+                	
+                 		<h3>Modify the curve </h3>
+                 		Position on middle rod: 0.05 ... 0.95<br/>
+                 		<input type="number" id="stick" min="0.05" max="0.95" step="0.05">
+                 		<br/><br/>
+                 		
+                 		Rotating rod length: 0.5 ... 1.3<br/>
+                 		<input type="number" id="rod" min="0.5" max="1.3" step="0.05">
+
+                 <br/><br/>
+                 
+					<input id="checkboxConstr" type="checkbox" name="construct" >
+					<label for="checkboxConstr">Add Mechanical Construction</label>
+				 
+				 	<br/><br/>
+                 
+					<input id="checkboxRand" type="checkbox" name="random" >
+					<label for="checkboxRand">Add Random Points</label>
+				 
+				 	<br/><br/>
+                 
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+				
+	
+                </div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+                Lemniscates can be parametrized by inverting parametrized
+                <a href="../hyperbola/hyperbola.html">Hyperbolas.</a>
+                &nbsp Here we use the mechanical construction: The right rod is rotating and the
+                position of the other joint	is obtained by intersecting two circles. The drawing
+                pen is the dot on the middle rod.
+        		<br/>
+                <br/>
+                </div>
+                
+                <div id="copyright" class="text">
+                &nbsp Tangent construction for mechanically generated curves. Turn demo on! </br>
+                &nbsp The green circle, the intersection of the lines of the outer two rods, is
+                the momentary fixed point of the rotating </br>
+                &nbsp movement of the "moving plane" attached to the middle rod of the drawing
+                mechanism. All points of the moving </br>
+                &nbsp plane have velocities orthogonal to their connection with this momentary 
+                fixed point. The tangent at the current </br>
+                &nbsp point of each curve is therefore orthogonal to this generalized "radius":
+                a very simple tangent construction.
+                <p><a href="../../docs/Lemniscate.pdf">Lemniscate.pdf</a></p>
+                <nav class="nav1"><a href="../index.html">
+                     <h2f style="text-align: center;"> Return To Plane Curves </h2></a></nav>
+
+                <footer>
+				© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font > 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

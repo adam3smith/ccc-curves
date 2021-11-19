@@ -1,0 +1,83 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>Catenary</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="catenary.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="catenary.js"></script>
+        </head>
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Morph exp() to cosh() <br/>
+                The graph of cosh is the Catenary.
+                </h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+                	
+                 		<h3>Modify the curve </h3>
+                 		morph, 0 ... 1: <br/>
+                 		<input type="number" id="param1" min="0" max="1" step="0.05">
+ <!-- 
+                		<br/><br/>
+						y-frequency: <br/>
+                 		<input type="number" id="param2" min="1" max="20">
+ -->
+                 <br/><br/>
+              
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxInvert" type="checkbox" name="invert" >
+					<label for="checkboxInvert">Invert Curve in Circle</label>
+				
+
+                </div>
+
+                <div id="description" class="text">
+                
+                The curves are defined by these equations: 			<br/>
+        		c(t) = [ x,&nbsp morph*exp(x) + (1-morph)*cosh(x) ]	<br/>
+        		Note: 												<br/>
+        		(exp(x)*A + exp(-x)/A)/2 = cosh(x+log(A))			<br/>
+        		The name Catenary indicates that a hanging			<br/>
+        		chain (supported at both ends) has this shape.		<br/>
+        		The caustic of the normals is the Tractrix.			<br/><br/>
+        		Inversion(vector) = (radius/vector)^2 * vector
+                <br/>
+                </div>
+                
+                <div id="copyright" class="text">
+				<nav class="nav1"><a href="../index.html">Plane Curves</a></nav>
+						
+                <p><a href="../../docs/catenary.pdf">catenary.pdf</a></p>
+                <footer>
+				© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

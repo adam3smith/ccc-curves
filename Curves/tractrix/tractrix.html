@@ -1,0 +1,112 @@
+<html lang="en">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+                <title>Tractrix</title>
+                <link rel="stylesheet" href="../../styles/main.css" />
+                <link rel="stylesheet" href="tractrix.css">
+				<script defer src="../../myLibrary/LinAlgebra.js"></script>
+				<script defer src="../../myLibrary/myAnalysis.js"></script>
+				<script defer src="tractrix.js"></script>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104620-4', 'auto');
+  ga('send', 'pageview');
+</script>
+        
+        </head>
+        
+        <body>
+         <div class="site">
+                <div id="title" class="text">
+                <h2 style="text-align: center;">Tractrix With Dog Leash Construction</br>
+                The "Moving Plane" Attached To The Leash Draws Related Curves</h2>
+                </div>
+                <div id="svgArea" class="text">
+                        <svg id="mySVG">
+
+                        </svg>
+                </div>
+                <div id="menu" class="text">
+                	
+                 		<h3>Modify the curve </h3>
+                 		pen position on stick: -1.6 ... 3: <br/>
+                 		<input type="number" id="param1" min="-1.6" max="3" step="0.2">
+<!-- 
+                 		<br/><br/>
+						y-frequency, 1 ... 20: <br/>
+                 		<input type="number" id="param2" min="1" max="20">
+ -->
+                 <br/><br/>
+              
+					<input id="checkboxConst" type="checkbox" name="construct" >
+					<label for="checkboxConst">Add Dog Leash Construction</label>
+				 
+				 	<br/><br/>
+              
+					<input id="checkboxRand" type="checkbox" name="randots" >
+					<label for="checkboxRand">Add Random Dots And Tangent</label>
+				 
+				 	<br/><br/>
+              
+					<input id="checkboxOsc" type="checkbox" name="osculate" >
+					<label for="checkboxOsc">Move/Stop Osculating Circles</label>
+				 
+				 	<br/><br/>
+            	 	
+					<input id="checkboxNormal" type="checkbox" name="normals" >
+					<label for="checkboxNormal">Add/Remove Normals</label>
+				 
+ 					<br/><br/>
+					<input id="checkboxBackgrd" type="checkbox" name="background" >
+					<label for="checkboxBackgrd">B/W Background</label>
+				
+				</div>
+ <!-- 
+               <div id="menu2" class="text">
+                page settings
+                </div>
+ -->
+                <div id="description" class="text">
+                The tractrix family is defined by these equations: 					<br/>
+        		&nbsp c(t) = [stick*sin(t), stick*cos(t) + log(tang(t/2))].			<br/>
+        		&nbsp The default is stick = 1 for the tractrix itsself.			<br/>
+        		These curves are obtained with tangents. For the simplest such		
+        		construction see:
+        		<a href="../cycloid/cycloid.html">Cycloid</a>. 	</br>
+        		The caustic of the normals of the tractrix
+        		 is the <a href="../catenary/catenary.html">Catenary</a>.
+        		<br/>
+                </div>
+                
+                <div id="copyright" class="text">
+                &nbsp The tractrix is usually explained by having a dog owner march on the
+                y-axis and pulling his resisting dog with a leash of length 1. </br>
+                &nbsp The leash (red) therefore is the tangent to the path of the dog. Knowing
+                the tangent, before knowing the curve, means: </br>
+                &nbsp the tractrix is determined by an ordinary differential equation (ODE) and
+                the given formula happens to be a solution. </br>
+                &nbsp Attach a "moving plane" to the leash - visualized by the square of random dots -
+                and let other points of this plane  </br>
+                &nbsp draw related curves by changing the pen position on the leash/stick.
+                
+                <p><a href="../../docs/Tractrix.pdf">Tractrix.pdf</a></p>
+                <nav class="nav1"><a href="../index.html">
+                     <h2f style="text-align: center;"> Return To Plane Curves </h2></a></nav>
+
+                <footer>
+				© Copyright 2004-2020 <a href="http://3D-XplorMath.org/consortium.html">3DXM Consortium</a>.
+				Please send comments or suggestions to <a href="mailto:palais%40uci.edu">palais&#64;uci.edu</a>
+				or to Karcher at <a href="mailto:unm16%40uni-bonn.de"><font> 
+				unm416&#64;uni-bonn.de</font></a>				
+				</footer>
+                </div>
+                
+         </div>
+         
+        </body>
+</html>

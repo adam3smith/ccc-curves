@@ -1,0 +1,33 @@
+function morph3primesXYZCoord (t: longreal): vector;
+    var
+        tt,tt0,ct,st,q,a,b,c: longreal;
+        P: vector;
+    begin
+        dd := MyRound(dd);
+        ee := MyRound(ee);
+        tt := abs(t);      tt0 := pi/( 1.5 + (dd-3)*0.7*(1 - (dd-5)/16) );
+        P.x := (aa + cc*cos(dd * t)) * cos(ee * t);
+        P.y := (aa + cc*cos(dd * t)) * sin(ee * t);
+        P.z := cc * sin(dd * t);
+        if (tt <= tt0) then       {   (P.y, P.z) := (P.y, P.z)*cos(tt) + (P.z, -P.y)*sin(tt)  }
+        begin
+                   {    a := 0.2;  b := pow(a,3);   c := pow(1-a,3) + b;
+                       tt := 1/c*(pow(abs(t/tt0)-a, 3) + b);  
+                    }
+           tt := -pi*ff*sqr(sqr(sqr(1- sqr(sqr(t/tt0)) )));   {   not too good for dd = 5  }
+           ct := cos(tt);  st := sin(tt);  
+           q   := + P.y * ct + P.z * st;
+           P.z := - P.y * st + P.z * ct;
+           P.y := q; 
+        end;
+        morph3primesXYZCoord := P;
+    end;
+    
+    
+    Only ee = 2 is ok
+    Nur aa oder cc wird benötigt.
+    ff = 1 works for dd = 3,5,7,9
+    ff = 2 works for dd = 3,5,7 with sightly larger aa = 4, 4.5
+    
+    -pi < t < +pi
+     if (tt <= tt0)   d.h. in einer Umgebung von t=0 findet die Änderung statt
