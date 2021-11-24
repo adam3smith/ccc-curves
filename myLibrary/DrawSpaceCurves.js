@@ -100,13 +100,11 @@ window.onload = init;
 		bound = (2 * n - ns + 1);
 		//if ((ODEchoice > 0)&&checkboxNormal.checked) {bound = bound + ns*(n-1);}
 		//for (let ii = 0; ii * ns < bound; ii++) { key[ii] = ii;	}
-		pheight	= [];
-		pkey	= [];
-		for (let ii = 0; ii < 4*numTb1; ii++) { pkey[ii] = ii;	}	
+		pheight	= [];	
 	}
 	
 	function upDownEvo() {
-		return  !(ODEchoice == 0) && checkboxNormal.checked;
+		return  ((!(ODEchoice == 0)) && checkboxNormal.checked);
 	}
 	
 	function dataToformulas()	{  // cannot be called from formulas
@@ -693,7 +691,7 @@ window.onload = init;
 		hnormal.setAttribute("d", "");
 		bnormal.setAttribute("d", "");
 		//evolut.setAttribute("d", "");
-		for (let i = 0; i < n; i += nstep) {
+		for (let i = 0; i < n; i += 1) { //nstep
 			evols[i].setAttribute("d", "");
 		}
 	 }
@@ -701,6 +699,7 @@ window.onload = init;
 	
 
  function makeTubeSVG() {
+	 {makeNormalsSVG();}
 	 if (checkboxTube.checked)	{
 		let hnrml = [];
 		let bnrml = [];
@@ -716,6 +715,11 @@ window.onload = init;
 		let kap2 	= 0;
 		let kv,kr 	= 0
 		let j 		= -1;
+		let ie		= 0;
+		let addbd	= 0;
+		if (upDownEvo()) {addbd = n-1;}
+		pkey	= [];
+		for (let ii = 0; ii < 4*numTb1+addbd; ii++) { pkey[ii] = ii;	}
 		
 	for (let i = 0; i < n+(min(1,ODEadjust)*tubeStep); i++) {
 			if (i%(tubeStep) == 0)	{
@@ -724,6 +728,11 @@ window.onload = init;
 				pheight[j+numTb2] = 0;  pheight[j+numTb3] = 0; 
 				kv = 1,  kr = 2*tubeStep;
 			}
+			
+		if (upDownEvo()) {
+			for (let i=0; i < n-1; i++) {
+					pheight[i+4*numTb1] = eheight[i];}
+		}
 			
 			tangVec = curve[i][1];
 			ntan	= dotProd1(tangVec, tangVec);
@@ -795,9 +804,17 @@ window.onload = init;
 		  }
 		  
 		  pkey.sort(Pkkey);
+		  if (upDownEvo() )
+		  ;//console.log("upDownEvo,n, pkey.length = ",1,n,pkey.length, 4*numTb1+(n-1));
+		  else
+		  ;//console.log("upDownEvo,n, pkey.length = ",0,n,pkey.length, 4*numTb1+(n-1));
 		  
-		  for (let jj = 0; jj < 4*numTb1; jj++) {
-		  svgEl.appendChild(tube[pkey[jj]]);			}
+		  for (let jj = 0; jj < 4*numTb1+addbd; jj++) {
+		  ie = pkey[jj];
+		  if (ie < 4*numTb1)
+		  		{svgEl.appendChild(tube[ie]);}	
+		  else	{svgEl.appendChild(evols[ie - 4*numTb1]);}		
+		  }
 		  
 		} 	// if checkbox  
 		    
@@ -819,13 +836,14 @@ window.onload = init;
 	{
 	if (!checkboxTube.checked)	
 	{ makeSymLinesSVG();
-	  	if (upDownEvo) {makeNormalsSVG();}
+	  	//if (upDownEvo) 
+	  	{makeNormalsSVG();}
 		txt = '';
 		let t = 0;
 		let j, jj, ii, ie = 0;
 		//let bound = (2 * n - ns + 1); // global
 		let addbd = 0;
-		if (upDownEvo) {addbd = ns*(n-1);}
+		if (upDownEvo()) {addbd = ns*(n-1);}
 		/* ==================== linear segments only =================== */
 		// 	for (let i=0; i<n+1; i++)
 		//   	{	
@@ -842,7 +860,7 @@ window.onload = init;
 			if (i * ns < n) { height[i] = max(curve[ns * i][0][2], curve[ns * i + ns][0][2]); }
 			else { height[i] = min(curve[ns * i - n][0][2], curve[ns * i - n + ns][0][2]) - 0 / 512; }
 		}
-		if (upDownEvo) {
+		if (upDownEvo()) {
 			for (let i=0; i < n-1; i++) {
 					height[i+ceil(bound/ns)] = eheight[i];}
 		}
@@ -854,7 +872,7 @@ window.onload = init;
 		}
 
 		key.sort(Mkkey);
-		 console.log("sorted key and length ", key.length);
+		 //console.log("sorted key and length ", key.length);
 		
 			ie = 0;
 		for (let i = 0; i * ns < bound + ns*(n-1); i++) {
@@ -863,7 +881,7 @@ window.onload = init;
 			jj = ns * ii; // curve point numbers for the Bezier approximations
 			if (jj < n) { j = jj; }
 			else if(jj < bound)		{ j = jj - n; }
-			else if (!(jj < bound) && upDownEvo)
+			else if (!(jj < bound) && upDownEvo())
 				{ie = (ii - ceil(bound/ns));}
 		if(jj < bound) {
 		// left
@@ -905,7 +923,7 @@ window.onload = init;
 				}
 			    svgEl.appendChild(paths[ii]);   // the order of appendChild is very important
 			}
-			else // if (!(jj < bound) && upDownEvo)
+			else // if (!(jj < bound) && upDownEvo())
 				{// console.log("jj,bound,ii,ie = ",key.length,jj,bound,ii,ie);
 				svgEl.appendChild(evols[ie]); }  // the order of appendChild is very important
 		}
@@ -1052,7 +1070,8 @@ window.onload = init;
 		// console.log("txt = ",txt);
 
 		makeTXTforpath();
-		makeNormalsSVG();
+		//if (!upDownEvo || !checkboxNormal.checked)  // avoid duplication
+		//	{makeNormalsSVG();}
 		makeTubeSVG();
 		
 		if (checkboxOsc.checked) {
