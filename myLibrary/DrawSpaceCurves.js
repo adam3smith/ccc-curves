@@ -136,7 +136,7 @@ window.onload = init;
 		tube[i+numTb1] = document.createElementNS("http://www.w3.org/2000/svg","polygon");
 		tube[i+numTb2] = document.createElementNS("http://www.w3.org/2000/svg","polygon");
 		tube[i+numTb3] = document.createElementNS("http://www.w3.org/2000/svg","polygon");
-		tube[i].setAttribute("style", `fill:rgb(250,250,10);stroke:black;stroke-width:0.3`);
+		tube[i].setAttribute("style", `fill:rgb(250,10,250);stroke:black;stroke-width:0.3`);
 		tube[i+numTb1].setAttribute("style", `fill:rgb(250,80,10);stroke:black;stroke-width:0.3`);
 		tube[i+numTb2].setAttribute("style", `fill:rgb(10,250,10);stroke:black;stroke-width:0.3`);
 		tube[i+numTb3].setAttribute("style", `fill:rgb(10,180,250);stroke:black;stroke-width:0.3`);
@@ -755,10 +755,10 @@ window.onload = init;
 			   pfg[j][kr]	= [curve[i][0][0] - bnrml[0], curve[i][0][1] - bnrml[1]];
 			   pfm[j][kr]	= [curve[i][0][0] + bnrml[0], curve[i][0][1] + bnrml[1]];
 	
-			   pheight[j]			+= 2*curve[i][0][2] + hnrml[2] + bnrml[2];
-			   pheight[j+numTb1]	+= 2*curve[i][0][2] + hnrml[2] - bnrml[2];
-			   pheight[j+numTb2]	+= 2*curve[i][0][2] - hnrml[2] - bnrml[2];
-			   pheight[j+numTb3]	+= 2*curve[i][0][2] - hnrml[2] + bnrml[2];
+			   pheight[j]			+= (2*curve[i][0][2] + hnrml[2] + bnrml[2])/2/tubeStep;
+			   pheight[j+numTb1]	+= (2*curve[i][0][2] + hnrml[2] - bnrml[2])/2/tubeStep;
+			   pheight[j+numTb2]	+= (2*curve[i][0][2] - hnrml[2] - bnrml[2])/2/tubeStep;
+			   pheight[j+numTb3]	+= (2*curve[i][0][2] - hnrml[2] + bnrml[2])/2/tubeStep;
 			
 			kv = kv+1;  kr = kr-1;
 			if ((kv == tubeStep+1)&&(j>0))	{
@@ -804,10 +804,10 @@ window.onload = init;
 		  }
 		  
 		  pkey.sort(Pkkey);
-		  if (upDownEvo() )
-		  ;//console.log("upDownEvo,n, pkey.length = ",1,n,pkey.length, 4*numTb1+(n-1));
+/*		  if (upDownEvo() )
+		  console.log("upDownEvo,n, pkey.length = ",1,n,pkey.length, 4*numTb1+(n-1));
 		  else
-		  ;//console.log("upDownEvo,n, pkey.length = ",0,n,pkey.length, 4*numTb1+(n-1));
+		  console.log("upDownEvo,n, pkey.length = ",0,n,pkey.length, 4*numTb1+(n-1)); */
 		  
 		  for (let jj = 0; jj < 4*numTb1+addbd; jj++) {
 		  ie = pkey[jj];
