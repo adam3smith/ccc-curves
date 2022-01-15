@@ -13,15 +13,18 @@
 
 <style>
 	.slidecontainer {
-	  width: 80%;
+	  width: 70%;
 	}
 
 
 	.slider {
 	  -webkit-appearance: none;
-	  width: 70%;
+	  width: 60%;
 	  height: 25px;
-	  outline: none;
+	  outline: solid;
+	  outline-color: red;
+	  outlineThickness: 2;
+	  background: #a3d3d3;
 	  -webkit-transition: .2s;
 	}
 
@@ -140,32 +143,28 @@
                 and if the curve is its own evolute we call it a <font color="magenta">ccc-autoevolute</font>.
                 See:  <a href="../../docs/ccc-autoevolute.pdf">ccc-Autoevolute.</a>
                  				
- 				    <div class="slidecontainer">
-  					<input type="range" min="0" max="16" step = "1" value="16" class="slider" id="myRange">
-  					<font size="6"><span id="giveValue"></span></font>
-  					<br>Click through the examples!
+ 				    <div class="slidecontainer"><font size="4" color="magenta"> See 17 Fourier examples:</font>
+  					<input type="range" min="0" max="16" step = "1" value="16" class="slider" id="myRange0">
+  					<font size="6"><span id="giveValue0"></span></font>
+  					<br>
 					</div>
+ 				    <div class="slidecontainer"><font size="4" color="magenta"> See 16 Flat Zeros examples:</font>
+  					<input type="range" min="0" max="15" step = "1" value="4" class="slider" id="myRange1">
+  					<font size="6"><span id="giveValue1"></span></font>
+  					<br>
+					</div>
+ 				    <div class="slidecontainer"><font size="4" color="magenta"> See 18 Flat Extrema examples:</font>
+  					<input type="range" min="0" max="17" step = "1" value="2" class="slider" id="myRange2">
+  					<font size="6"><span id="giveValue2"></span></font>
+  					<br>
+					</div>					
                 All parameters can be changed independently and if the corresponding solution curve has its symmetry normals
                 so close that they can be made coplanar by slightly changing the first parameter 
                 <font color="magenta"> kappa </font>, then the program adjusts kappa. (The console has more details.) Note:
                 If the symmetry normals are parallel there is no signed distance between them and the distance function whose
                 zero we are looking for returns "Not a Number" = NaN. Therefore we cannot always find a zero between a positive
-                and a negative value.-- Here is a list of examples (copy a1, a3 first, kappa last): </font><br><br>
-                <table>
-				<tr>
-					<td> kappa: </td> <td>0.5993,</td><td>1.675,</td><td>1.022,</td><td>0.9413,</td><td>0.6526,</td><td>0.9707,</td> 
-					<td>1.3703,</td><td>0.5386,</td><td>1.65,</td><td>0.6493,</td><td>1.527,</td><td>1.0818,</td><td>1.5696,</td>
-					<td>2.6929,</td><td>2.8702,</td><td>2.602,</td><td>2.525,</td>
-				</tr><tr>	
-                	<td> a1:  </td> <td>1.5618,</td> <td>0.7238,</td><td>1.2444,</td><td>1.2439,</td><td>0.8551,</td><td>2.3695,</td>
-                	<td>1.2699,</td><td>2.1199,</td><td>0.716,</td><td>0.614,</td><td>0.8847,</td><td>1.9439,</td><td>0.9374,</td>
-                	<td>1.5045,</td><td>1.5045,</td><td>1.755,</td><td>1.7978,</td>
-                </tr><tr>	
-                	<td> a3: </td> <td> -0.5206,</td> <td>0.6716,</td><td>-2.1667,</td><td>-2.581,</td><td>-0.5073,</td><td>-0.8647,</td>
-                	<td>0.2991,</td><td>-0.3854,</td><td>-0.614,</td><td>-0.614,</td><td>-0.6478,</td><td>-0.6478,</td><td>0.1875,</td>
-                	<td>0.5015,</td><td>-0.5015,</td><td>-0.6178,</td><td>-0.0918,</td>
-                </tr>
-                </table>
+                and a negative value.
+                <br>
                 <br>The convex hull of the pair of osculating circles is the <a href="https://de.wikipedia.org/wiki/Oloid"> Oloid.</a>
  				<br>Select ``normals'' and ``osculating circles'' to see it.
  				

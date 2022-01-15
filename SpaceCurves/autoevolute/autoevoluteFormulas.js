@@ -143,10 +143,27 @@
 		return ODEresult;
 	}
 	
-let kappaArr =  [0.5993,1.675,1.022,0.9413,0.6526,0.9707,1.3703,0.5386,1.65,0.6493,1.527,1.0818,1.5696,2.6929,2.8702,2.602,2.525];
-let a1Arr   = [1.5618, 0.7238,1.2444,1.2439,0.8551,2.3695,1.2699,2.1199,0.716,0.614,0.8847,1.9439,0.9374,1.5045,1.5045,1.755,1.7978];
-let a3Arr   = [-0.5206, 0.6716,-2.1667,-2.581,-0.5073,-0.8647,0.2991,-0.3854,-0.614,-0.614,-0.6478,-0.6478,0.1875,0.5015,-0.5015,-0.6178,-0.0918];	
-console.log("k12 = ",kappaArr[2],a1Arr[2],a3Arr[2]);
+let kappaArr =  [0.5993,1.675,1.022,0.9413,0.6526,0.9707,1.3703,0.5386,1.6505,0.6493,1.527,1.0818,1.5696,2.6929,2.8708,2.602,2.525];
+let a1Arr   = [1.5618, 0.7238,1.2444,1.2439,0.8551,2.3695,1.2699,2.1197,0.71586,0.6138,0.8852,1.9439,0.93736,1.50452,1.504,1.755,1.7975];
+let a3Arr   = [-0.5206, 0.6718,-2.1667,-2.581,-0.5073,-0.8647,0.2991,-0.386,-0.61383,-0.6142,-0.6485,-0.6474,0.1875,0.5017,-0.502,-0.61775,-0.0917];
+let tb0Arr  = [3.6,3.6,2.8,2.8,3.6,1.8,3.6,3.6,3.6,3.6,3.6,3.4,3.6,3.2,2.8,2.0,2.8];
+let scl0Arr = [3.8,4.5,4.0,3.9,3.7,4.1,4.2,3.8,4.1,3.5,3.8,4.0,3.9,4.3,3.8,3.8,3.8];	
+//console.log("k120 = ",kappaArr[2],a1Arr[2],a3Arr[2]);
+
+let kappa1Arr =  [1.8462,1.7826,0.5473,0.6414,0.4756,0.6706,1.5439,1.632,1.9824,2.4805,0.684,0.8626,1.3963,2.0506,2.6042,1.32];
+let a11Arr   = [0.9613,2.2494,2.204,1.44478,2.6157,1.08167,1.4407,2.4007,0.6824,1.5634,0.8622,2.681466,1.66526,0.48842,1.43,1.7856];
+let a31Arr   = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];	
+let tb1Arr  = [3.6,1.6,3.6,3.6,3.6,3.6,3.4,1.0,3.0,3.0,3.6,1.0,3.2,2.4,2.6,3.0];
+let scl1Arr = [3.8,4.1,3.8,3.7,3.7,3.5,3.9,4.0,3.8,4.0,3.4,3.6,3.6,3.5,3.7,3.5];
+//console.log("k121 = ",kappa1Arr[2],a11Arr[2],a31Arr[2]);
+
+let kappa2Arr =  [0.6424,1.87,0.68,0.579,0.9616,1.220,0.6672, 1.40, 1.9175,2.8246,3.042,0.6873,2.9954,3.4153,0.6953,1.8335,2.7764,3.987];
+let a12Arr   = [0.4914,0.929,0.3312,0.667,0.88673,1.0309,0.39492,0.5454,0.67, 0.9392,1.0015,0.28542,0.5742,0.6609,0.22366,0.2843,0.3669,0.5465];
+let a32Arr   = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+let tb2Arr  = [3.6,2.8,3.6,3.6,3.6,3.6,3.6,3.2,3.6,2.0,2.0,3.6,3.2,3.0,3.6,3.2,2.8,2.4];
+let scl2Arr = [3.8,4.7,3.6,3.8,4.3,4.5,3.8,4.2,4.3,4.8,4.8,3.6,4.2,4.3,3.4,3.6,3.7,3.9];	
+//console.log("k122 = ",kappa2Arr[2],a12Arr[2],a32Arr[2]);
+
 	
 	function symPlaneAngle()	{
 	/* If one is near a closed curve, this program varies kappa to really close the curve 
@@ -340,26 +357,75 @@ function symAxDistanceKappa()	{
 	}
 
 		
-	let slider = document.getElementById("myRange");
-	let output = document.getElementById("giveValue");
-	slider.value = 1;
-	output.innerHTML = slider.value;
+	let slider0 = document.getElementById("myRange0");
+	let output0 = document.getElementById("giveValue0");
+	slider0.value = 1;
+	output0.innerHTML = slider0.value;
 
-	slider.oninput = function() {
+	slider0.oninput = function() {
 		tw0 = true; tw1 = false; tw2 = false;
 		torsionMenu.value = "default";
-  		output.innerHTML = this.value;
+  		output0.innerHTML = this.value;
   		inputParam2.value = a1Arr[this.value];
-  		ODEcomputed = false;
-  		getParameter2();
+  		parameter2  = inputParam2.value;
   		inputParam3.value = a3Arr[this.value];
-  		ODEcomputed = false;
-  		getParameter3();
+  		parameter3  = inputParam3.value;
+  		inputParam5.value = tb0Arr[this.value];
+  		parameter5  = inputParam5.value;
+  		inputParam6.value = scl0Arr[this.value];
+  		parameter6  = inputParam6.value;
+  		drawScl = exp(parameter6);	
   		inputParam1.value = kappaArr[this.value];
   		ODEcomputed = false;
-  		getParameter1();
-  		
-  		
+  		getParameter1();  		
+	}
+	
+	let slider1 = document.getElementById("myRange1");
+	let output1 = document.getElementById("giveValue1");
+	slider1.value = 4;
+	output1.innerHTML = slider1.value;
+
+	slider1.oninput = function() {
+		tw0 = false; tw1 = true; tw2 = false;
+		checkboxTube.checked = false;
+		torsionMenu.value = "flatZeros";
+  		output1.innerHTML = this.value;
+		inputParam2.value = a11Arr[this.value];
+  		parameter2  = inputParam2.value;
+  		inputParam3.value = a31Arr[this.value];
+  		parameter3  = inputParam3.value;
+  		inputParam5.value = tb1Arr[this.value];
+  		parameter5  = inputParam5.value;
+  		inputParam6.value = scl1Arr[this.value];
+  		parameter6  = inputParam6.value;
+  		drawScl = exp(parameter6);	
+  		inputParam1.value = kappa1Arr[this.value];
+  		ODEcomputed = false;
+  		getParameter1(); 		
+	}
+	
+	let slider2 = document.getElementById("myRange2");
+	let output2 = document.getElementById("giveValue2");
+	slider2.value = 3;
+	output2.innerHTML = slider2.value;
+
+	slider2.oninput = function() {
+		tw0 = false; tw1 = false; tw2 = true;
+		checkboxTube.checked = false;
+		torsionMenu.value = "flatExtrema";
+  		output2.innerHTML = this.value;
+  		inputParam2.value = a12Arr[this.value];
+  		parameter2  = inputParam2.value;
+  		inputParam3.value = a32Arr[this.value];
+  		parameter3  = inputParam3.value;
+  		inputParam5.value = tb2Arr[this.value];
+  		parameter5  = inputParam5.value;
+  		inputParam6.value = scl2Arr[this.value];
+  		parameter6  = inputParam6.value;
+  		drawScl = exp(parameter6);	
+  		inputParam1.value = kappa2Arr[this.value];
+  		ODEcomputed = false;
+  		getParameter1();  		
 	}
 	
 		function chooseTorsion(torsionName) {
